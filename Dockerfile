@@ -23,9 +23,8 @@ RUN apt update \
 # Get magneticod and magneticow
 RUN magnetico_latest=$(curl --silent "https://api.github.com/repos/boramalper/magnetico/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') \
     && curl -o /opt/magnetico/magneticod -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticod \
-	&& curl -o /opt/magnetico/magneticow -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticow
-
-RUN chmod +x /opt/magnetico/*
+	&& curl -o /opt/magnetico/magneticow -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticow \
+	&& chmod +x /opt/magnetico/magnetico*
 
 WORKDIR /opt/magnetico
 
