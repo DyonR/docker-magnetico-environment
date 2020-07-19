@@ -10,6 +10,8 @@ RUN apt update \
     && apt -y install \
     curl \
 	apache2-utils \
+	moreutils \
+	lsb-base \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
