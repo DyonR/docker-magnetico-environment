@@ -9,6 +9,7 @@ RUN apt update \
     && apt -y upgrade \
     && apt -y install \
     curl \
+	apache2-utils \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
@@ -26,7 +27,11 @@ RUN magnetico_latest=$(curl --silent "https://api.github.com/repos/boramalper/ma
 	&& curl -o /opt/magnetico/magneticow -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticow \
 	&& chmod +x /opt/magnetico/magnetico*
 
+COPY run.sh /opt/magnetico/
 WORKDIR /opt/magnetico
 
 EXPOSE 8080
-CMD ["/bin/bash"]
+CMD ["/opt/magnetico/run.sh"]
+
+ENV MAGNETICOW_USERNAME=username \
+    MAGNETICOW_PASSWORD=password
