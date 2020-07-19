@@ -1,5 +1,5 @@
 # magnetico Docker environment
-[_"magnetico is an autonomous (self-hosted) BitTorrent DHT search engine suite."_](https://github.com/boramalper/magnetico)
+[_"magnetico is an autonomous (self-hosted) BitTorrent DHT search engine suite."_](https://github.com/boramalper/magnetico)  
 This Docker runs a basic magnetico environment, magneticow, the webserver and magneticod, the DHT Crawler.
 
 [results]: https://raw.githubusercontent.com/DyonR/docker-templates/master/Screenshots/magnetico-environment/magneticow-results.png "magneticow results page"
@@ -12,7 +12,7 @@ This Docker runs a basic magnetico environment, magneticow, the webserver and ma
 * Build with [Unraid](https://unraid.net/) in mind
 
 # Run container from Docker registry
-The container is available from the Docker registry and this is the simplest way to get it.
+The container is available from the Docker registry and this is the simplest way to get it.  
 To run the container use this command:
 
 ```
@@ -59,7 +59,7 @@ $ docker run  -d \
 Access http://IPADDRESS:PORT from a browser on the same network (for example: http://192.168.0.90:8080).
 
 # Issues
-If you are having issues with this container please submit an issue on GitHub.
-Please provide logs, Docker version and other information that can simplify reproducing the issue.
-Using the latest stable verison of Docker is always recommended. Support for older version is on a best-effort basis.
+If you are having issues with this container please submit an issue on GitHub.  
+Please provide logs, Docker version and other information that can simplify reproducing the issue.  
+Using the latest stable verison of Docker is always recommended. Support for older version is on a best-effort basis.  
 If the issue is related to magneticow or magneticod, [please sumbit an issue on their GitHub](https://github.com/boramalper/magnetico).
