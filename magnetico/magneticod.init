@@ -1,12 +1,12 @@
 #!/bin/bash
 ### BEGIN INIT INFO
-# Provides:          magneticow
+# Provides:          magneticod
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: Starts magneticow
-# Description:       Starts magneticow.
+# Short-Description: Starts magneticod
+# Description:       Starts magneticod.
 ### END INIT INFO
 
 # Author: Jesper Smith
@@ -16,21 +16,21 @@
 # Edited by DyonR [DyonR/docker-magnetico-environment]
 # Revamped so it works for magneticod/w
 
-# Edit the user that magneticow will run as.
+# Edit the user that magneticod will run as.
 USER=$(id -u)
 GROUP=$(id -g)
 
 PATH="/sbin:/usr/sbin:/bin:/usr/bin"
-SCRIPTNAME="/etc/init.d/magneticow"
-NAME="magneticow"
-DESC="magneticow"
+SCRIPTNAME="/etc/init.d/magneticod"
+NAME="magneticod"
+DESC="magneticod"
 PIDFILE="/var/run/$NAME.pid"
-MAGNETICOWLOGPATH="/opt/magnetico/Logs/"
-MAGNETICOWLOG="magneticow.txt"
+MAGNETICODLOGPATH="/opt/magnetico/Logs/"
+MAGNETICODLOG="magneticod.txt"
 
-DAEMON="/opt/magnetico/magneticow"
-DAEMON_ARGS=$magneticow_args
-DAEMONSTRING="$DAEMON $DAEMON_ARGS >> $MAGNETICOWLOGPATH$MAGNETICOWLOG 2>&1"
+DAEMON="/opt/magnetico/magneticod"
+DAEMON_ARGS=$magneticod_args
+DAEMONSTRING="$DAEMON $DAEMON_ARGS >> $MAGNETICODLOGPATH$MAGNETICODLOG 2>&1"
 
 export DBUS_SESSION_BUS_ADDRESS=""
 
@@ -49,22 +49,22 @@ umask 002
 do_start()
 {
 	# Check if log path exists. If it doesn't exist, create it.
-	if [ ! -e $MAGNETICOWLOGPATH ]; then
-		mkdir -p $MAGNETICOWLOGPATH
+	if [ ! -e $MAGNETICODLOGPATH ]; then
+		mkdir -p $MAGNETICODLOGPATH
 		chown -R ${PUID}:${PGID} /opt/magnetico
 	fi
 	
 	# Check for log file. If it doesn't exist, create it.
-	if [ -f $MAGNETICOWLOGPATH$MAGNETICOWLOG ]; then
-		echo "[INFO] Logging to $MAGNETICOWLOGPATH$MAGNETICOWLOG." | ts '%Y-%m-%d %H:%M:%.S'
+	if [ -f $MAGNETICODLOGPATH$MAGNETICODLOG ]; then
+		echo "[INFO] Logging to $MAGNETICODLOGPATH$MAGNETICODLOG." | ts '%Y-%m-%d %H:%M:%.S'
 	else
-		echo "[INFO] Log file $MAGNETICOWLOGPATH$MAGNETICOWLOG doesn't exist. Creating it..." | ts '%Y-%m-%d %H:%M:%.S'
-		touch $MAGNETICOWLOGPATH$MAGNETICOWLOG
-		if [ -f $MAGNETICOWLOGPATH$MAGNETICOWLOG ]; then
-			chown $USER:$GROUP $MAGNETICOWLOGPATH$MAGNETICOWLOG
-				echo "[INFO] Logfile created. Logging to $MAGNETICOWLOGPATH$MAGNETICOWLOG" | ts '%Y-%m-%d %H:%M:%.S'
+		echo "[INFO] Log file $MAGNETICODLOGPATH$MAGNETICODLOG doesn't exist. Creating it..." | ts '%Y-%m-%d %H:%M:%.S'
+		touch $MAGNETICODLOGPATH$MAGNETICODLOG
+		if [ -f $MAGNETICODLOGPATH$MAGNETICODLOG ]; then
+			chown $USER:$GROUP $MAGNETICODLOGPATH$MAGNETICODLOG
+				echo "[INFO] Logfile created. Logging to $MAGNETICODLOGPATH$MAGNETICODLOG" | ts '%Y-%m-%d %H:%M:%.S'
 			else
-				echo "[WARNING] Couldn't create logfile $MAGNETICOWLOGPATH$MAGNETICOWLOG. Please investigate." | ts '%Y-%m-%d %H:%M:%.S'
+				echo "[WARNING] Couldn't create logfile $MAGNETICODLOGPATH$MAGNETICODLOG. Please investigate." | ts '%Y-%m-%d %H:%M:%.S'
 		fi
 	fi
 
@@ -76,7 +76,7 @@ do_start()
 	start-stop-daemon --start --chuid $USER:$GROUP --test --quiet --make-pidfile --pidfile $PIDFILE --background --exec /bin/bash -- -c "$DAEMONSTRING" || return 1
 	start-stop-daemon --start --chuid $USER:$GROUP --make-pidfile --pidfile $PIDFILE --background --exec /bin/bash -- -c "$DAEMONSTRING" || return 2
 	sleep 1
-	echo "[INFO] magneticow daemon started successfully..." | ts '%Y-%m-%d %H:%M:%.S'
+	echo "[INFO] magneticod daemon started successfully..." | ts '%Y-%m-%d %H:%M:%.S'
 }
 
 #
@@ -129,7 +129,7 @@ case "$1" in
 	;;
   *)
 	#echo "Usage: $SCRIPTNAME {start|stop|restart|reload|force-reload}" >&2
-	echo "Usage: service magneticow {start|stop|status|restart|force-reload}" >&2
+	echo "Usage: service magneticod {start|stop|status|restart|force-reload}" >&2
 	exit 3
 	;;
 esac
