@@ -14,5 +14,5 @@ elif [ ! -z "$MAGNETICOW_USERNAME" ] && [ -z "$MAGNETICOW_PASSWORD" ]; then
 elif [ ! -z "$MAGNETICOW_USERNAME" ] && [ ! -z "$MAGNETICOW_PASSWORD" ]; then
     echo "Refreshing the credentials file"
 	htpasswd -cbBC 12 /opt/magnetico/credentials "$MAGNETICOW_USERNAME" "$MAGNETICOW_PASSWORD"
-	magneticow_params="--credentials==/opt/magnetico/credentials"
+	magneticow_params="--credentials=/opt/magnetico/credentials"
 fi
