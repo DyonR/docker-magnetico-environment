@@ -86,6 +86,13 @@ else
 fi
 
 magneticod_args="--indexer-addr=$MAGNETICOD_ADDRESS:$MAGNETICOD_PORT --indexer-interval=$MAGNETICOD_INTERVAL --indexer-max-neighbors=$MAGNETICOD_NEIGHBORS --leech-max-n=$MAGNETICOD_LEECHES"
+
+# magneticod verbosity
+if [[ $MAGNETICOD_VERBOSE == "1" || $MAGNETICOD_VERBOSE == "true" || $MAGNETICOD_VERBOSE == "yes" ]]; then
+	echo "Enabling verbosity for magneticod" | ts '%Y-%m-%d %H:%M:%.S'
+	magneticod_args="$magneticod_args --verbose"
+fi
+
 export magneticod_args
 
 echo "[INFO] Starting magneticow..." | ts '%Y-%m-%d %H:%M:%.S'

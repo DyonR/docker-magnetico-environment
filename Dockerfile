@@ -36,6 +36,3 @@ RUN chmod +x /opt/magnetico/*
 
 EXPOSE 8080
 CMD ["/opt/magnetico/run.sh"]
-
-ENV MAGNETICOW_USERNAME=username \
-    MAGNETICOW_PASSWORD=password
