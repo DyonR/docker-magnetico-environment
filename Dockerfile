@@ -6,8 +6,8 @@ RUN mkdir -p /opt/magnetico
 
 # Update, upgrade and install some required packages
 RUN apt update \
-    && apt -y upgrade
-    && apt -y install
+    && apt -y upgrade \
+    && apt -y install \
     wget
 
 WORKDIR /opt/magnetico
