@@ -9,9 +9,10 @@ RUN apt update \
     && apt -y upgrade \
     && apt -y install \
     curl \
-	apache2-utils \
-	moreutils \
-	lsb-base \
+    apache2-utils \
+    moreutils \
+    lsb-base \
+	procps \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
@@ -22,11 +23,11 @@ RUN apt update \
     /usr/share/locale \
     /usr/share/info \
     /usr/share/lintian
-	
+    
 # Get magneticod and magneticow
 RUN magnetico_latest=$(curl --silent "https://api.github.com/repos/boramalper/magnetico/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') \
-    && curl -o /opt/magnetico/magneticod -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticod \
-	&& curl -o /opt/magnetico/magneticow -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticow
+    && curl -so /opt/magnetico/magneticod -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticod \
+    && curl -so /opt/magnetico/magneticow -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticow
 
 ADD magnetico/ /opt/magnetico/
 WORKDIR /opt/magnetico
