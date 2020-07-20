@@ -29,6 +29,8 @@ RUN magnetico_latest=$(curl --silent "https://api.github.com/repos/boramalper/ma
     && curl -so /opt/magnetico/magneticod -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticod \
     && curl -so /opt/magnetico/magneticow -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticow
 
+VOLUME /root/.local/share/magneticod
+
 ADD magnetico/ /opt/magnetico/
 WORKDIR /opt/magnetico
 
@@ -36,15 +38,3 @@ RUN chmod +x /opt/magnetico/*
 
 EXPOSE 8080
 CMD ["/opt/magnetico/run.sh"]
-
-ENV MAGNETICOW_USERNAME= \
-    MAGNETICOW_PASSWORD= \
-	MAGNETICOW_ADDRESS=0.0.0.0 \
-	MAGNETICOW_PORT=8080 \
-	MAGNETICOW_VERBOSE=false \
-	MAGNETICOD_ADDRESS=0.0.0.0 \
-	MAGNETICOD_PORT=0 \
-	MAGNETICOD_INTERVAL=1 \
-	MAGNETICOD_NEIGHBORS=1000 \
-	MAGNETICOD_LEECHES=50 \
-	MAGNETICOD_VERBOSE=false
