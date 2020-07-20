@@ -5,15 +5,15 @@ set -e
 # Refresh the credentials files
 echo "----------- magneticow -----------"
 if [ -z "$MAGNETICOW_USERNAME" ] && [ -z "$MAGNETICOW_PASSWORD" ]; then
-    echo "[WARNING] No username and password provided in the environment variables. Using '--no-auth' for magneticow" | ts '%Y-%m-%d %H:%M:%.S'
+    echo "[WARNING] No username and password provided in the environment variables. Using '--no-auth' for magneticow. Anyone can access magneticow without a password now." | ts '%Y-%m-%d %H:%M:%.S'
 	magneticow_args="--no-auth"
 elif [ -z "$MAGNETICOW_USERNAME" ] && [ ! -z "$MAGNETICOW_PASSWORD" ]; then
     echo "[ERROR] No username for magneticow is provided in the environment variable" | ts '%Y-%m-%d %H:%M:%.S'
-	echo "[ERROR] You need to enter either no username and password. It's either both empty, or both filled in." | ts '%Y-%m-%d %H:%M:%.S'
+	echo "[ERROR] You need to enter a username. It's either both username and password empty, or both filled in." | ts '%Y-%m-%d %H:%M:%.S'
 	exit 0
 elif [ ! -z "$MAGNETICOW_USERNAME" ] && [ -z "$MAGNETICOW_PASSWORD" ]; then
     echo "[ERROR] No password for magneticow is provided in the environment variable" | ts '%Y-%m-%d %H:%M:%.S'
-	echo "[ERROR] You need to enter either no username and password. It's either both empty, or both filled in." | ts '%Y-%m-%d %H:%M:%.S'
+	echo "[ERROR] You need to enter a password. It's either both username and password empty, or both filled in." | ts '%Y-%m-%d %H:%M:%.S'
 	exit 0
 elif [ ! -z "$MAGNETICOW_USERNAME" ] && [ ! -z "$MAGNETICOW_PASSWORD" ]; then
     echo "[INFO] Refreshing the credentials file" | ts '%Y-%m-%d %H:%M:%.S'
