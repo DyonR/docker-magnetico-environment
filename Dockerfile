@@ -29,6 +29,8 @@ RUN magnetico_latest=$(curl --silent "https://api.github.com/repos/boramalper/ma
     && curl -so /opt/magnetico/magneticod -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticod \
     && curl -so /opt/magnetico/magneticow -L https://github.com/boramalper/magnetico/releases/download/$magnetico_latest/magneticow
 
+VOLUME /root/.local/share/magneticod
+
 ADD magnetico/ /opt/magnetico/
 WORKDIR /opt/magnetico
 
