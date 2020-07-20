@@ -12,7 +12,7 @@ RUN apt update \
     apache2-utils \
     moreutils \
     lsb-base \
-	procps \
+    procps \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
