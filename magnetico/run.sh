@@ -92,26 +92,26 @@ if [[ $MAGNETICOD_VERBOSE == "1" || $MAGNETICOD_VERBOSE == "true" || $MAGNETICOD
 	echo "Enabling verbosity for magneticod" | ts '%Y-%m-%d %H:%M:%.S'
 	magneticod_args="$magneticod_args --verbose"
 fi
-
 export magneticod_args
+
+echo "----------------------------------"
 
 echo "[INFO] Starting magneticow..." | ts '%Y-%m-%d %H:%M:%.S'
 /bin/bash /opt/magnetico/magneticow.init start &
 chmod -R 755 /opt/magnetico
-
 sleep 1
+
 magneticowpid=$(pgrep -o -x magneticow)
 echo "[INFO] magneticow PID: $magneticowpid" | ts '%Y-%m-%d %H:%M:%.S'
-
-sleep 1
 
 echo "[INFO] Starting magneticod..." | ts '%Y-%m-%d %H:%M:%.S'
 /bin/bash /opt/magnetico/magneticod.init start &
 chmod -R 755 /opt/magnetico
-
 sleep 1
+
 magneticodpid=$(pgrep -o -x magneticod)
 echo "[INFO] magneticod PID: $magneticodpid" | ts '%Y-%m-%d %H:%M:%.S'
+sleep 1
 
 if [ -e /proc/$magneticowpid ] && [ -e /proc/$magneticodpid ]; then
 	if [[ -e /opt/magnetico/Logs/magneticow.txt ]] && [[ -e /opt/magnetico/Logs/magneticod.txt ]]; then
