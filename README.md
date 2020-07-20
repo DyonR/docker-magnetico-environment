@@ -30,8 +30,8 @@ $ docker run  -d \
 | Variable | Required | Description | Example | Default |
 |----------|----------|----------|----------|----------|
 | **magneticow** | | | | |
-|`MAGNETICOW_USERNAME`| No* | Username used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`|`magneticow`||
-|`MAGNETICOW_PASSWORD`| No* | Password used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`|`magneticow`||
+|`MAGNETICOW_USERNAME`| No\* | Username used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`||
+|`MAGNETICOW_PASSWORD`| No\* | Password used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`||
 |`MAGNETICOW_ADDRESS`| No | Host address of magneticow |`MAGNETICOW_ADDRESS=0.0.0.0`|`0.0.0.0`|
 |`MAGNETICOW_PORT`| No | Port that magneticow gets hosted on |`MAGNETICOW_PORT=8080`|`8080`|
 |`MAGNETICOW_VERBOSE`| No | If set to `1`, `true` or `yes`, magneticow will run verbose |`MAGNETICOW_VERBOSE=yes`||
@@ -41,7 +41,7 @@ $ docker run  -d \
 |`MAGNETICOD_INTERVAL`| No | The indexing interval in seconds |`MAGNETICOD_INTERVAL=30`|`1`|
 |`MAGNETICOD_NEIGHBORS`| No | The maximum numbers of neighbors of an indexer |`MAGNETICOD_NEIGHBORS=500`|`1000`|
 |`MAGNETICOD_LEECHES`| No | The maximum numbers of leeches |`MAGNETICOD_LEECHES=25`|`50`|
-|`MAGNETICOD_VERBOSE`| No | If set to `1`, `true` or `yes`, magneticod will run verbose |`MAGNETICOD_VERBOSE=yes`||
+|`MAGNETICOD_VERBOSE`| No | If set to `1`, `true` or `yes`, magneticod will run verbose |`MAGNETICOD_VERBOSE=yes`|
 
 \* Username and password are not required if both aren't defined. It's either both empty, or both filled in.
 
