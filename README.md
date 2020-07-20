@@ -48,7 +48,7 @@ $ docker run  -d \
 ## Volumes
 | Volume | Required | Description | Example |
 |----------|----------|----------|----------|
-| `config` | Yes | The path where magneticod will store its database | `/your/database/path/:/root/.local/share/magneticod/database.sqlite3`|
+| `config` | Yes | The path where magneticod will store its database | `/your/database/path/:/root/.local/share/magneticod`|
 
 ## Ports
 | Port | Proto | Required | Description | Example |
