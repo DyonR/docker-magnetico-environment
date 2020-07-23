@@ -18,8 +18,8 @@ To run the container use this command:
 ```
 $ docker run  -d \
               -v /your/database/path/:/root/.local/share/magneticod \
-              -e "USERNAME=magneticow" \
-              -e "PASSWORD=magneticow" \
+              -e "USERNAME=magnetico" \
+              -e "PASSWORD=magnetico" \
 			  -e "PUID=99" \
 			  -e "PGID=100" \
               -p 8556:8080/tcp \
@@ -31,8 +31,8 @@ $ docker run  -d \
 | Variable | Required | Description | Example | Default |
 |----------|----------|----------|----------|----------|
 | **magneticow** | | | | |
-|`MAGNETICOW_USERNAME`| No\* | Username used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`||
-|`MAGNETICOW_PASSWORD`| No\* | Password used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`||
+|`MAGNETICOW_USERNAME`| No\* | Username used to access the magneticow web interface |`MAGNETICOW_USERNAME=magnetico`||
+|`MAGNETICOW_PASSWORD`| No\* | Password used to access the magneticow web interface |`MAGNETICOW_USERNAME=magnetico`||
 |`MAGNETICOW_ADDRESS`| No | Host address of magneticow |`MAGNETICOW_ADDRESS=0.0.0.0`|`0.0.0.0`|
 |`MAGNETICOW_VERBOSE`| No | If set to `1`, `true` or `yes`, magneticow will run verbose |`MAGNETICOW_VERBOSE=yes`||
 | **magneticod** | | | | |
