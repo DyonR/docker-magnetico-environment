@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+echo "[INFO] Changing the ownership of the database" | ts '%Y-%m-%d %H:%M:%.S'
+chown -Rv ${PUID}:${PGID} /root/.local/share/magneticod
+
 # magneticow settings
 # Refresh the credentials files
 echo "----------- magneticow -----------"

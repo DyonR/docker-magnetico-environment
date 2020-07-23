@@ -1,6 +1,6 @@
 # magnetico Docker environment
 [_"magnetico is an autonomous (self-hosted) BitTorrent DHT search engine suite."_](https://github.com/boramalper/magnetico)  
-This Docker runs a basic magnetico environment, magneticow, the webserver and magneticod, the DHT Crawler.
+This Docker runs a basic magnetico environment; magneticow, the webserver and magneticod, the DHT crawler / DHT indexer.
 
 [results]: https://raw.githubusercontent.com/DyonR/docker-templates/master/Screenshots/magnetico-environment/magneticow-results.png "magneticow results page"
 ![alt text][results]
@@ -9,7 +9,7 @@ This Docker runs a basic magnetico environment, magneticow, the webserver and ma
 * Base: Debian 10
 * Latest magneticow and magneticod
 * All magnetico settings adjustable via environment variables.
-* Build with [Unraid](https://unraid.net/) in mind
+* Created with [Unraid](https://unraid.net/) in mind
 
 # Run container from Docker registry
 The container is available from the Docker registry and this is the simplest way to get it.  
@@ -20,8 +20,9 @@ $ docker run  -d \
               -v /your/database/path/:/root/.local/share/magneticod \
               -e "USERNAME=magneticow" \
               -e "PASSWORD=magneticow" \
+			  -e "PUID=99" \
+			  -e "PGID=100" \
               -p 8080:8080 \
-              --restart unless-stopped \
               dyonr/magnetico-environment
 ```
 
@@ -41,7 +42,9 @@ $ docker run  -d \
 |`MAGNETICOD_INTERVAL`| No | The indexing interval in seconds |`MAGNETICOD_INTERVAL=30`|`1`|
 |`MAGNETICOD_NEIGHBORS`| No | The maximum numbers of neighbors of an indexer |`MAGNETICOD_NEIGHBORS=500`|`1000`|
 |`MAGNETICOD_LEECHES`| No | The maximum numbers of leeches |`MAGNETICOD_LEECHES=25`|`50`|
-|`MAGNETICOD_VERBOSE`| No | If set to `1`, `true` or `yes`, magneticod will run verbose |`MAGNETICOD_VERBOSE=yes`|
+|`MAGNETICOD_VERBOSE`| No | If set to `1`, `true` or `yes`, magneticod will run verbose |`MAGNETICOD_VERBOSE=yes`||
+|`PUID`| Yes | The PUID that will be set on the magneticod database folder |`PUID=1000`|`99`|
+|`PGID`| Yes | The PGID that will be set on the magneticod database folder |`PGID=100`|`100`|
 
 \* Username and password are not required if both aren't defined. It's either both empty, or both filled in.
 
