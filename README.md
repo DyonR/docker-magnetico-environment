@@ -20,8 +20,8 @@ $ docker run  -d \
               -v /your/database/path/:/root/.local/share/magneticod \
               -e "USERNAME=magnetico" \
               -e "PASSWORD=magnetico" \
-			  -e "PUID=99" \
-			  -e "PGID=100" \
+              -e "PUID=99" \
+              -e "PGID=100" \
               -p 8556:8080/tcp \
               dyonr/magnetico-environment
 ```
