@@ -34,7 +34,6 @@ $ docker run  -d \
 |`MAGNETICOW_USERNAME`| No\* | Username used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`||
 |`MAGNETICOW_PASSWORD`| No\* | Password used to access the magneticow web interface |`MAGNETICOW_USERNAME=magneticow`||
 |`MAGNETICOW_ADDRESS`| No | Host address of magneticow |`MAGNETICOW_ADDRESS=0.0.0.0`|`0.0.0.0`|
-|`MAGNETICOW_PORT`| No | Port that magneticow gets hosted on |`MAGNETICOW_PORT=8080`|`8080`|
 |`MAGNETICOW_VERBOSE`| No | If set to `1`, `true` or `yes`, magneticow will run verbose |`MAGNETICOW_VERBOSE=yes`||
 | **magneticod** | | | | |
 |`MAGNETICOD_ADDRESS`| No | IP-address used by magneticod for indexing on the DHT network |`MAGNETICOD_ADDRESS=0.0.0.0`|`0.0.0.0`|
@@ -56,7 +55,7 @@ $ docker run  -d \
 ## Ports
 | Port | Proto | Required | Description | Example |
 |----------|----------|----------|----------|----------|
-| `8080` | TCP | Yes | Port of the magneticow web interface | `8080:8080`|
+| `8080` | TCP | Yes | The port that you will access magneticow webinterface on | `8080:8080`|
 
 # Access the magnetico web interface
 Access http://IPADDRESS:PORT from a browser on the same network (for example: http://192.168.0.90:8080).

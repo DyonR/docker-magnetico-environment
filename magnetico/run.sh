@@ -33,12 +33,12 @@ else
 fi
 
 # Web port
-if [ -z "$MAGNETICOW_PORT" ]; then
-    echo "[INFO] No port for magneticow is provided in the environment variable, using default 8080" | ts '%Y-%m-%d %H:%M:%.S'
-	MAGNETICOW_PORT="8080"
-else
-    echo "[INFO] Setting magneticow port to $MAGNETICOW_PORT" | ts '%Y-%m-%d %H:%M:%.S'
-fi
+#if [ -z "$MAGNETICOW_PORT" ]; then
+#    echo "[INFO] No port for magneticow is provided in the environment variable, using default 8080" | ts '%Y-%m-%d %H:%M:%.S'
+	#MAGNETICOW_PORT="8080"
+#else
+#    echo "[INFO] Setting magneticow port to $MAGNETICOW_PORT" | ts '%Y-%m-%d %H:%M:%.S'
+#fi
 
 magneticow_args="$magneticow_args --addr=$MAGNETICOW_ADDRESS:$MAGNETICOW_PORT"
 
