@@ -22,7 +22,7 @@ $ docker run  -d \
               -e "PASSWORD=magneticow" \
 			  -e "PUID=99" \
 			  -e "PGID=100" \
-              -p 8080:8080 \
+              -p 8556:8080/tcp \
               dyonr/magnetico-environment
 ```
 
@@ -55,10 +55,10 @@ $ docker run  -d \
 ## Ports
 | Port | Proto | Required | Description | Example |
 |----------|----------|----------|----------|----------|
-| `8080` | TCP | Yes | The port that you will access magneticow webinterface on | `8080:8080`|
+| `8080` | TCP | Yes | The port that you will access magneticow webinterface on | `8556:8080`|
 
 # Access the magnetico web interface
-Access http://IPADDRESS:PORT from a browser on the same network (for example: http://192.168.0.90:8080).
+Access http://IPADDRESS:PORT from a browser on the same network (for example: http://192.168.0.90:8556).
 
 # Issues
 If you are having issues with this container please submit an issue on GitHub.  
