@@ -66,7 +66,7 @@ Please provide logs, Docker version and other information that can simplify repr
 Using the latest stable verison of Docker is always recommended. Support for older version is on a best-effort basis.  
 If the issue is related to magneticow or magneticod, [please sumbit an issue on their GitHub](https://github.com/boramalper/magnetico).
 
-# [Warning from the creator of magnetico](https://github.com/boramalper/magnetico/blob/master/cmd/magneticow/README.md#Warnings)
+# [Warnings from the creator of magnetico](https://github.com/boramalper/magnetico/blob/master/cmd/magneticow/README.md#Warnings)
 1. **magnetico** currently does NOT have any filtering system NOR it allows individual torrents to be removed from the
    database, and BitTorrent DHT network is full of the materials that are considered illegal in many countries
    (violence, pornography, copyright infringing content, and even child-pornography). If you are afraid of the legal
