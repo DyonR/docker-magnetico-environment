@@ -65,3 +65,20 @@ If you are having issues with this container please submit an issue on GitHub.
 Please provide logs, Docker version and other information that can simplify reproducing the issue.  
 Using the latest stable verison of Docker is always recommended. Support for older version is on a best-effort basis.  
 If the issue is related to magneticow or magneticod, [please sumbit an issue on their GitHub](https://github.com/boramalper/magnetico).
+
+# [Warning from the creator of magnetico](https://github.com/boramalper/magnetico/blob/master/cmd/magneticow/README.md#Warnings)
+1. **magnetico** currently does NOT have any filtering system NOR it allows individual torrents to be removed from the
+   database, and BitTorrent DHT network is full of the materials that are considered illegal in many countries
+   (violence, pornography, copyright infringing content, and even child-pornography). If you are afraid of the legal
+   consequences, or simply morally against (indirectly) assisting those content to spread around, follow the
+   **magneticow** installation instructions carefully to password-protect the web-interface from others.
+   
+2. **magneticow** uses HTTP Basic Authentication, meaning that your username and password will be
+   transmitted in plain-text for every request. Configuring **magneticow** to serve behind a
+   web-server with HTTPS enabled is strongly recommended, but unfortunately not described here. You
+   can use [Let's Encrypt](https://letsencrypt.org/) to get a certificate for free.
+
+3. **magneticow** is *NOT* designed to scale, and will fail miserably if you try to use it like a public torrent
+   website. This is a *deliberate* technical decision, not a bug or something to be fixed; *another* web interface with
+   more features to support such use cases and scalability *might* be developed, but **magneticow** will NEVER be the
+   case.
