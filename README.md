@@ -1,3 +1,6 @@
+[![Docker Pulls](https://img.shields.io/docker/pulls/dyonr/magnetico-environment)](https://hub.docker.com/r/dyonr/magnetico-environment)
+[![Docker Image Size (tag)](https://img.shields.io/docker/image-size/dyonr/magnetico-environment/latest)](https://hub.docker.com/r/dyonr/magnetico-environment)
+
 # magnetico Docker environment
 [_"magnetico is an autonomous (self-hosted) BitTorrent DHT search engine suite."_](https://github.com/boramalper/magnetico)  
 This Docker runs a basic magnetico environment; magneticow, the webserver and magneticod, the DHT crawler / DHT indexer.

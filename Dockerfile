@@ -13,8 +13,6 @@ RUN apt update \
     moreutils \
     lsb-base \
     procps \
-    systemd \
-    systemd-sysv \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
