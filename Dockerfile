@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM debian:bullseye-slim
 
 # Creathe the directory in which magneticod and magneticow will be placed
 RUN mkdir -p /opt/magnetico
