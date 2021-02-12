@@ -1,5 +1,4 @@
-FROM debian:10-slim
-LABEL MAINTAINER=DyonR
+FROM ubuntu:18.04
 
 # Creathe the directory in which magneticod and magneticow will be placed
 RUN mkdir -p /opt/magnetico
