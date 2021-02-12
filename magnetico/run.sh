@@ -106,7 +106,7 @@ echo "[INFO] Starting magneticow..." | ts '%Y-%m-%d %H:%M:%.S'
 chmod -R 755 /opt/magnetico
 sleep 1
 
-magneticowpid=$(pgrep -o -x magneticow)
+magneticowpid=$(pidof magneticow)
 echo "[INFO] magneticow PID: $magneticowpid" | ts '%Y-%m-%d %H:%M:%.S'
 
 echo "[INFO] Starting magneticod..." | ts '%Y-%m-%d %H:%M:%.S'
@@ -114,7 +114,7 @@ echo "[INFO] Starting magneticod..." | ts '%Y-%m-%d %H:%M:%.S'
 chmod -R 755 /opt/magnetico
 sleep 1
 
-magneticodpid=$(pgrep -o -x magneticod)
+magneticodpid=$(pidof magneticod)
 echo "[INFO] magneticod PID: $magneticodpid" | ts '%Y-%m-%d %H:%M:%.S'
 sleep 1
 
